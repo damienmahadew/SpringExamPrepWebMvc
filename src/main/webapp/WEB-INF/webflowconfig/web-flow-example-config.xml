@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+    <view-state id="enterInfo">
+        <!--<transition on="findItinerary" to="reviewItinerary"/>-->
+    </view-state>
+
+    <view-state id="reviewItinerary">
+        <!--<transition on="viewSeat" to="chooseSeat"/>-->
+        <!--<transition on="accept" to="finish"/>-->
+    </view-state>
+
+    <view-state id="chooseSeat">
+        <!--<transition on="findSeat" to="finish"/>-->
+    </view-state>
+
+    <end-state id="finish"/>
+</flow>
+<!--This is an example of spring webflow-->

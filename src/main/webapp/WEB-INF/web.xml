@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <display-name>SpringExamPrepWebMvc</display-name>
+
+    <!--May set active profiles-->
+    <!--<context-param>-->
+        <!--<param-name>spring.profiles.active</param-name>-->
+        <!--<param-value>web</param-value>-->
+    <!--</context-param>-->
+
+    <!--May change the context config location -> defaul = /WEB-INF/applicationContext.xml-->
+    <!--<context-param>-->
+        <!--<param-name>contextConfigLocation</param-name>-->
+        <!--<param-value>
+        WEB-INF/SpringExamPrepWebMvc-servlet.xml
+        classpath:/...
+        </param-value>-->
+    <!--</context-param>-->
+
+
+    <!--Old way of setting up a server-->
+     <!--<servlet>-->
+        <!--<servlet-name>SpringExamPrepWebMvc</servlet-name>-->
+        <!--<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>-->
+        <!--<load-on-startup>1</load-on-startup>-->
+    <!--</servlet>-->
+
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>SpringExamPrepWebMvc</servlet-name>-->
+        <!--<url-pattern>/</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+
+    <!--Add a spring provided servlet listener-->
+    <!--<listener>-->
+        <!--<listener-class>-->
+            <!--org.springframework.web.context.ContextLoaderListener-->
+        <!--</listener-class>-->
+    <!--</listener>-->
+
+
+
+</web-app>
+<!--This is the web.xml which can be used to setup the dispatcher servlet
+If you are using servlet 3.0 and higher than you may extend the
+AbstractContextLoaderInitializer.class
+see main/java/config/MyWebInitializerAbstractContextLoaderListener
+or
+the AbstractAnnotationConfigDispatcherServletInitializer.class
+See main/java/config/MyWebInitializerAbstractAnnotationConfig.class -> this is a subclass of the above ContextLoaderListener-->
+
+
