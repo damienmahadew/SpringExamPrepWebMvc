@@ -19,7 +19,12 @@ public interface UserCrudRepository extends CrudRepository<User, Long> {
     //<Op> can be Gt, Lt, Ne, Between, Like
 
     User findByName(String name);
+    User findByNameAndSurname(String name, String surname);
     User findBySurname(String surname);
+
+    User findByIdNo(Long idNo);
+
+    List<User> findAll();
 
     User findByDateOfBirthBetween(Date d1, Date d2);
 
