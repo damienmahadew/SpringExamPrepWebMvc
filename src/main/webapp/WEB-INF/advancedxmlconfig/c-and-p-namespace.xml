@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dateService" class="services.impl.DateServiceImpl"/>
+    <bean id="userService" class="services.impl.UserServiceImpl"/>
+    <bean id="timeServiceSingleton" class="services.TimeServiceSingleton" factory-method="getInstance"/>
+
+    <!--Before using c and p namespace-->
+    <bean id="cAndPNamespaceExample" class="services.CAndPNamespaceExample">
+        <constructor-arg ref="userService"/>
+        <property name="dateService" ref="dateService"/>
+        <property name="timeServiceSingleton" ref="timeServiceSingleton"/>
+    </bean>
+
+    <!--After using c and p namespace-->
+    <bean id="anotherCAndPNamespaceExample" class="services.CAndPNamespaceExample"
+          c:userService-ref="userService"
+          p:dateService-ref="dateService"
+          p:timeServiceSingleton-ref="timeServiceSingleton"/>
+    <!--C and P namespaces should be declared on the top, http://www.springframework.org/schema/p and
+    http://www.springframework.org/schema/c no extra schema locations required-->
+
+    <!--You may inject values as well
+    e.g. p:url="jdbc..." no need to use ref as it is a value-->
+
+</beans>

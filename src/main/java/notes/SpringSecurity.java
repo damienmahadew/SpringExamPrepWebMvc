@@ -106,4 +106,6 @@ package notes;
  *          -java configuration to activate detection of annotations
  *      Typically secure your services
  *          -do not access repositories directly, bypasses security(and transactions)
+ *
+ *   TODO- Spring security advanced topics pages 349 - 354
  */

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--Suppose you have a singleton with a private constructor
+    you need to use factory-method to instantiate the bean-->
+
+    <!--THis is useful for existing singletons or factories-->
+    <bean id="userService" class="services.TimeServiceSingleton"
+          factory-method="getInstance"/>
+
+    <!--Using your own factories-->
+    <bean id="userServiceFactory" class="services.UserServiceFactory"/>
+
+    <!--anotherUserService is bean that is created from the create() method in factory bean = userServiceFactory -->
+    <bean id="anotherUserService" factory-bean="userServiceFactory" factory-method="create"/>
+
+    <!--Implementing FactoryBean-->
+    <bean id="dateServiceFactory" class="services.DateServiceFactory"/>
+
+    <!--Using the facotry bean  , depedency injection using factory bean automatically calls getObject()-->
+    <bean id="dateService" class="services.impl.DateServiceImpl">
+        <property name="specialDate" ref="dateServiceFactory"/>
+    </bean>
+
+    <!--Common example of factory bean-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactoryBean">
+        <property name="databasePopulator" ref="populator"/>
+    </bean>
+
+    <bean id="populator" class="org.springframework.jdbc.datasource.init.ResourceDatabasePopulator">
+        <property name="scripts">
+            <list>
+                <value>classpath:/WEB-INF/databasescripts/data.sql</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>

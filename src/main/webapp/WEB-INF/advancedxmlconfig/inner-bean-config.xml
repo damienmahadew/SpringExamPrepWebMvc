@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--Example of inner bean
+    cannot be used outside this bean
+    similar to an anonymous bean-->
+    <bean class="services.impl.DateServiceImpl">
+        <property name="specialDate">
+            <bean class="domain.SpecialDate"/>
+        </property>
+    </bean>
+
+    <!--If you were to create an outer bean then all other beans have access to it-->
+
+    <!--You may have multiple levels of inner beans-->
+</beans>

@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.view.JstlView;
  */
 @Configuration
 @Import({SpringDataConfig.class})
+//@ImportResource({"/WEB-INF/advancedxmlconfig/advanced-xml-config.xml"})
 @EnableWebMvc
 @ComponentScan({"controllers", "services.impl"}) // be specific, avoid loading non web layer beans
 public class MvcConfig {

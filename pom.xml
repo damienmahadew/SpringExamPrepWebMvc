@@ -115,6 +115,13 @@
       <!--<version>2.5</version>-->
     <!--</dependency>-->
 
+    <!--Basic data source -->
+    <dependency>
+      <groupId>commons-dbcp</groupId>
+      <artifactId>commons-dbcp</artifactId>
+      <version>1.4</version>
+    </dependency>
+
     <!--Taglibs-->
     <dependency>
       <groupId>javax.servlet</groupId>

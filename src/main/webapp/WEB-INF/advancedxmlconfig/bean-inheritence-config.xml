@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--Demonstrating bean inheritance-->
+    <bean class="org.apache.commons.dbcp.BasicDataSource" id="pool-A">
+        <property name="url" value="somevalue1"/>
+        <property name="username" value="user"/>
+    </bean>
+    <bean class="org.apache.commons.dbcp.BasicDataSource" id="pool-B">
+        <property name="url" value="somevalue2"/>
+        <property name="username" value="user"/>
+    </bean>
+    <bean class="org.apache.commons.dbcp.BasicDataSource" id="pool-C">
+        <property name="url" value="somevalue3"/>
+        <property name="username" value="user"/>
+    </bean>
+
+    <!--Verify common functionality-->
+    <!--Using bean inheritance-->
+
+    <!--Declare parent class-->
+    <bean id="abstractPool" class="org.apache.commons.dbcp.BasicDataSource" abstract="true">
+        <property name="username" value="user"/>
+    </bean>
+
+    <!--Declare child classes-->
+    <bean id="pool-a" parent="abstractPool">
+        <property name="url" value="somevalue1"/>
+    </bean>
+    <bean id="pool-b" parent="abstractPool">
+        <property name="url" value="somevalue2"/>
+    </bean>
+    <bean id="pool-c" parent="abstractPool">
+        <property name="url" value="somevalue3"/>
+    </bean>
+
+    <!--You could also set both username and url in the parent and override in subclass-->
+</beans>
